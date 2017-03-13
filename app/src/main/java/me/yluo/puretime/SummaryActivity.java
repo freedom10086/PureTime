@@ -1,4 +1,4 @@
-package me.yngluo.puretime;
+package me.yluo.puretime;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -19,8 +19,8 @@ public class SummaryActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
 
-        mTfLight = Typeface.createFromAsset(getAssets(), "OpenSans-Light.ttf");
-        mTfRegular = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
+        //mTfLight = Typeface.createFromAsset(getAssets(), "OpenSans-Light.ttf");
+        //mTfRegular = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
 
 
 

@@ -1,8 +1,6 @@
-package me.yngluo.puretime;
+package me.yluo.puretime;
 
-/**
- * Created by Admin on 2017/1/23.
- */
+
 public class PieChartItem {
 
     public PieChartItem(String lable, float value, int color) {

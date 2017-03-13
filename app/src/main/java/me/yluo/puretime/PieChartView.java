@@ -1,4 +1,4 @@
-package me.yngluo.puretime;
+package me.yluo.puretime;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -47,7 +47,7 @@ public class PieChartView extends View {
         mTextPaint.setTextAlign(Paint.Align.CENTER);
         dp_5 = dp2px(5);
 
-        ringwidth = dp_5 * 8;
+        ringwidth = dp_5 * 5;
         legendWidth = dp_5 * 8;
     }
 
@@ -122,7 +122,7 @@ public class PieChartView extends View {
     //画中间文字标题
     private void drawCenterText(Canvas mCanvas, String text, float x, float y) {
         Rect rect = new Rect();
-        mTextPaint.setTextSize(sp2px(25));
+        mTextPaint.setTextSize(legendWidth*1.3f);
         mTextPaint.setColor(Color.BLACK);
         mTextPaint.getTextBounds(text, 0, text.length(), rect);
         mCanvas.drawText(text, x, y + rect.height() / 2, mTextPaint);
@@ -146,7 +146,7 @@ public class PieChartView extends View {
         canvas.drawRect(startx, starty, startx+dp_5*3, starty+dp_5*3, paint);
 
         Rect rect = new Rect();
-        mTextPaint.setTextSize(sp2px(13));
+        mTextPaint.setTextSize(sp2px(15));
         mTextPaint.setColor(Color.BLACK);
         mTextPaint.getTextBounds(lable, 0, lable.length(), rect);
         canvas.drawText(lable,startx+dp_5*6,starty+rect.height()/2+dp_5*1.3f,mTextPaint);
