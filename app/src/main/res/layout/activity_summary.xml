@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_summary"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:orientation="vertical"
     tools:context="me.yluo.puretime.SummaryActivity">
+
+    <CalendarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <me.yluo.puretime.PieChartView
         android:id="@+id/pie_chart2"
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
-
-</RelativeLayout>
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp" />
+</LinearLayout>
