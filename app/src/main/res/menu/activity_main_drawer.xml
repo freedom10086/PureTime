@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
         android:id="@+id/nav_setting"
-        android:icon="@drawable/ic_menu_camera"
+        android:icon="@drawable/icon_setting"
         android:title="设置" />
     <item
         android:id="@+id/nav_sync"
-        android:icon="@drawable/ic_menu_gallery"
+        android:icon="@drawable/icon_upload"
         android:title="同步至云端" />
     <item
         android:id="@+id/nav_advice"
-        android:icon="@drawable/ic_menu_slideshow"
+        android:icon="@drawable/icon_feedback"
         android:title="意见反馈" />
     <item
         android:id="@+id/nav_about"
-        android:icon="@drawable/ic_menu_manage"
+        android:icon="@drawable/icon_about"
         android:title="关于我们" />
 
     <item
         android:id="@+id/nav_exit"
-        android:icon="@drawable/ic_menu_manage"
+        android:icon="@drawable/icon_logout"
         android:title="退出登陆" />
 </menu>

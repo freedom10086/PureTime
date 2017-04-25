@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="me.yluo.puretime.ForgetPassActivity">
+
+    <FrameLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:paddingTop="24dp">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            style="@style/Icon"
+            android:src="@drawable/btn_back" />
+
+        <TextView
+            style="@style/ToolbarTitle"
+            android:text="忘记密码"
+            android:textColor="?android:textColorPrimaryInverse" />
+
+        <ImageView
+            android:id="@+id/btn_ok"
+            style="@style/Icon"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_check_24dp" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="您的注册邮箱"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/ed_bg"
+        android:hint="填写您注册的邮箱"
+        android:inputType="textEmailAddress"
+        android:maxLines="1"
+        android:padding="4dp"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/divider_full" />
+</LinearLayout>

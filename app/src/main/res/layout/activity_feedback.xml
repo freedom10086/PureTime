@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="me.yluo.puretime.FeedbackActivity">
+
+    <FrameLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:paddingTop="24dp">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            style="@style/Icon"
+            android:src="@drawable/btn_back" />
+
+        <TextView
+            style="@style/ToolbarTitle"
+            android:text="反馈"
+            android:textColor="?android:textColorPrimaryInverse" />
+
+        <ImageView
+            android:id="@+id/btn_ok"
+            style="@style/Icon"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_check_24dp" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="问题和反馈"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/ed_bg"
+        android:gravity="top"
+        android:hint="再此简要描述你的意见或遇到的问题..."
+        android:inputType="text|textMultiLine"
+        android:lines="4"
+        android:maxLines="4"
+        android:padding="4dp"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/divider_full" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="添加图片(可选)"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:src="@drawable/add_image" />
+</LinearLayout>

@@ -33,6 +33,9 @@ public class MainActivity extends AppCompatActivity
         findViewById(R.id.btn_drawer).setOnClickListener(this);
         findViewById(R.id.btn_sum).setOnClickListener(this);
 
+        navigationView.getHeaderView(0)
+                .findViewById(R.id.nav_img).setOnClickListener(this);
+
         for (int i = 0; i < 10; i++) {
             planDatas.add(new PlanData());
         }
@@ -44,7 +47,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -57,6 +59,19 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+
+        switch (id) {
+            case R.id.nav_about:
+                startActivity(new Intent(this, AboutActivity.class));
+                break;
+            case R.id.nav_advice:
+                startActivity(new Intent(this, FeedbackActivity.class));
+                break;
+            case R.id.nav_setting:
+                startActivity(new Intent(this, SettingActivity.class));
+                break;
+        }
+
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -69,6 +84,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.btn_sum:
                 startActivity(new Intent(this, SummaryActivity.class));
+                break;
+            case R.id.nav_img:
+                startActivity(new Intent(this, UserCenterActivity.class));
                 break;
         }
     }

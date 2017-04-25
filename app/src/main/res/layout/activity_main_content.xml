@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@drawable/bg"
     android:orientation="vertical"
     android:paddingTop="25dp"
     tools:context="me.yluo.puretime.MainActivity">
@@ -11,70 +11,103 @@
     <ImageView
         android:id="@+id/btn_drawer"
         style="@style/Icon"
-        android:src="@drawable/ic_menu_nav_24dp" />
-
+        android:src="@drawable/icon_menu" />
 
     <ImageView
         android:id="@+id/btn_sum"
         style="@style/Icon"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/ic_menu_gallery" />
+        android:src="@drawable/icon_bar" />
 
     <LinearLayout
         android:id="@+id/date_container"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_drawer"
         android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            style="@style/IconSmall"
+            android:src="@drawable/ic_chevron_l" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="4dp"
-                android:layout_height="4dp"
-                android:layout_margin="4dp"
-                android:src="@drawable/dot_bg" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="4dp"
-                android:layout_height="4dp"
-                android:layout_margin="4dp"
-                android:src="@drawable/dot_bg" />
+                <ImageView
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/dot_bg" />
 
-            <ImageView
-                android:layout_width="4dp"
-                android:layout_height="4dp"
-                android:layout_margin="4dp"
-                android:src="@drawable/dot_bg" />
+                <ImageView
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/dot_bg" />
+
+                <ImageView
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/dot_bg" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:text="3月 3日"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="星期四"
+                android:textColor="?android:textColorSecondary" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="3月3日"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="?android:textColorPrimaryInverse" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="星期四"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="?android:textColorSecondaryInverse" />
+        <ImageView
+            style="@style/IconSmall"
+            android:src="@drawable/ic_chevron_r" />
     </LinearLayout>
-
 
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/date_container"/>
+        android:layout_below="@+id/date_container"
+        android:divider="@drawable/divider" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:clickable="true"
+        android:src="@drawable/btn_more" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/main_r_b"
+        android:translationY="68dp" />
 </RelativeLayout>

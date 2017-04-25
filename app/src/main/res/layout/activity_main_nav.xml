@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:paddingEnd="16dp"
+    android:paddingStart="16dp"
+    android:paddingTop="16dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/nav_img"
@@ -21,8 +23,8 @@
         android:layout_marginTop="4dp"
         android:layout_toEndOf="@+id/nav_img"
         android:text="用户名"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textColor="?android:textColorPrimary" />
+        android:textColor="?android:textColorPrimary"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/nav_email"
@@ -33,6 +35,11 @@
         android:layout_marginTop="4dp"
         android:layout_toEndOf="@+id/nav_img"
         android:text="2351386755@qq.com"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="?android:textColorSecondary" />
+        android:textColor="?android:textColorSecondary"
+        android:textSize="16sp" />
+
+    <View
+        style="@style/DividerGrey"
+        android:layout_below="@+id/nav_img"
+        android:layout_marginTop="18dp" />
 </RelativeLayout>

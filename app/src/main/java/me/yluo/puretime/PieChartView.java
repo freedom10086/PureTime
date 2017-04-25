@@ -155,7 +155,7 @@ public class PieChartView extends View {
 
         Rect rect = new Rect();
         mTextPaint.setTextSize(sp2px(16));
-        mTextPaint.setColor(Color.BLACK);
+        mTextPaint.setColor(Color.WHITE);
         mTextPaint.getTextBounds(lable, 0, lable.length(), rect);
         canvas.drawText(lable, startx + dp_5 * 6, starty + rect.height() / 2, mTextPaint);
     }
@@ -170,8 +170,6 @@ public class PieChartView extends View {
             }
         }
         this.centerTitle = title;
-
-
     }
 
 
