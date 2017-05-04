@@ -26,7 +26,7 @@ public class PlanListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return planDatas.size();
+        return planDatas.size() == 0 ? planDatas.size() : planDatas.size() + 1;
     }
 
     @Override
@@ -41,28 +41,17 @@ public class PlanListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        if (convertView == null) {
-            holder = new ViewHolder();
+        if (position != getCount() - 1) {
             convertView = mInflater.inflate(R.layout.item_main, null);
-            holder.name = (TextView) convertView.findViewById(R.id.name);
-            holder.time = (TextView) convertView.findViewById(R.id.time);
-            holder.note = (TextView) convertView.findViewById(R.id.note);
-            holder.star = (ImageView) convertView.findViewById(R.id.star);
-            convertView.setTag(holder);
+            TextView name = (TextView) convertView.findViewById(R.id.name);
+            TextView time = (TextView) convertView.findViewById(R.id.time);
+            TextView note = (TextView) convertView.findViewById(R.id.note);
+            ImageView star = (ImageView) convertView.findViewById(R.id.star);
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            convertView = mInflater.inflate(R.layout.item_main_comment, null);
         }
-
-        //set data here
         return convertView;
     }
 
 
-    private class ViewHolder {
-        TextView name;
-        TextView time;
-        TextView note;
-        ImageView star;
-    }
 }

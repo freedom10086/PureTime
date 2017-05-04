@@ -14,6 +14,7 @@ public class AboutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        Util.regBackBtn(this);
 
         TextView version = (TextView) findViewById(R.id.tv_version);
         TextView versionNew = (TextView) findViewById(R.id.tv_new_version);

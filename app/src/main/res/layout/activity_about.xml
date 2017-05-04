@@ -13,6 +13,7 @@
         android:paddingTop="24dp">
 
         <ImageView
+            android:id="@+id/btn_back"
             style="@style/Icon"
             android:src="@drawable/btn_back" />
 

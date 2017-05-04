@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal|bottom"
+    android:paddingEnd="24dp"
+    android:paddingStart="24dp">
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#496884"
+        android:layout_above="@+id/btn_close"
+        android:padding="18dp">
+
+        <TextView
+            android:id="@+id/label_1"
+            android:layout_width="52dp"
+            android:layout_height="wrap_content"
+            android:text="任务"
+            android:textColor="?android:textColorSecondary"
+            android:textSize="16sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/label_1"
+            android:layout_toEndOf="@+id/label_1"
+            android:background="@drawable/ed_bg_activity"
+            android:gravity="start|top"
+            android:hint="自定义..."
+            android:maxLines="4"
+            android:paddingBottom="8dp"
+            android:textColor="?android:textColorSecondary"
+            android:textSize="16sp" />
+
+        <GridView
+            android:id="@+id/activity_grid"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_below="@+id/label_1"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:horizontalSpacing="4dp"
+            android:listSelector="@null"
+            android:numColumns="4"
+            android:verticalSpacing="4dp" />
+
+        <TextView
+            android:id="@+id/label_2"
+            android:layout_width="52dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_grid"
+            android:layout_marginTop="16dp"
+            android:text="耗时"
+            android:textColor="?android:textColorSecondary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/label_2"
+            android:layout_toEndOf="@+id/label_2"
+            android:text="4h 30min"
+            android:textColor="?android:textColorSecondary"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/time_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label_2"
+            android:layout_marginTop="12dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/clock_minute" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/clock_hour" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/label_content"
+            android:layout_width="52dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/time_view"
+            android:layout_marginTop="16dp"
+            android:text="内容"
+            android:textColor="?android:textColorSecondary"
+            android:textSize="16sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/label_content"
+            android:layout_toEndOf="@+id/label_content"
+            android:background="@drawable/ed_bg_activity"
+            android:gravity="start|top"
+            android:hint="点击此处编辑内容..."
+            android:maxLines="4"
+            android:paddingBottom="8dp"
+            android:textColor="?android:textColorSecondary"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_above="@+id/half_img"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_cancel" />
+
+    <Button
+        android:id="@+id/btn_done"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_above="@+id/half_img"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_ok" />
+
+    <ImageView
+        android:id="@+id/half_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/half_circle" />
+</RelativeLayout>
+

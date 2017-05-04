@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="16dp"
+    android:paddingEnd="12sp"
+    android:paddingStart="12dp"
+    android:paddingTop="16dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ed_bg_activity"
+        android:gravity="top"
+        android:hint="在此写下你的总结吧......"
+        android:lines="4"
+        android:maxLines="4"
+        android:padding="3dp" />
+</RelativeLayout>
