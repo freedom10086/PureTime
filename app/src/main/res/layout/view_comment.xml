@@ -26,7 +26,7 @@
         android:layout_below="@+id/label" />
 
     <Button
-        android:id="@+id/btn_close"
+        android:id="@+id/btn_done"
         android:layout_width="100dp"
         android:layout_height="32dp"
         android:layout_below="@+id/comment_view"

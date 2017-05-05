@@ -1,10 +1,13 @@
 package me.yluo.puretime.database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -43,18 +46,35 @@ public class MyDB {
         return format.parse(str);
     }
 
+    public static String getDateStr(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+        if (date == null) {
+            date = new Date(System.currentTimeMillis());
+        }
+        return format.format(date);
+    }
+
     public void insertPlan(PlanData planData) {
         getDb();
-        String sql = "INSERT INTO " + TABLE_NAME + " (tid,title,author,read_time)"
-                + " VALUES(?,?,?,?)";
-        String time = getTime();
-        //Object args[] = new Object[]{tid, title, author, read_time_str};
-        //this.db.execSQL(sql, args);
+        String sql = "INSERT INTO " + TABLE_NAME + " (time,name,cost,note) VALUES(?,?,?,?)";
+        Log.d("db", getDateStr(planData.date));
+        Object args[] = new Object[]{getDateStr(planData.date), planData.name, planData.cost, planData.note};
+        this.db.execSQL(sql, args);
         this.db.close();
+        Log.d("db", "insert");
+    }
+
+    public void updateStar(int id, int value) {
+        getDb();
+        String sql = "UPDATE " + TABLE_NAME + " set comment = ? where id = ?";
+        Object args[] = new Object[]{value, id};
+        this.db.execSQL(sql, args);
+        this.db.close();
+        Log.d("db", "updateStar,id:" + id + " value:" + value);
     }
 
 
-    private PlanData getPlan(String id) {
+    public PlanData getPlan(int id) {
         getDb();
         String sql = "SELECT tid from " + TABLE_NAME + " where tid = ?";
         //String args[] = new String[]{String.valueOf(tid)};
@@ -67,22 +87,33 @@ public class MyDB {
     }
 
 
-    private List<PlanData> getPlans() {
+    public List<PlanData> getPlans(Date date) {
+        Log.d("db", getDateStr(date));
         getDb();
-        String sql = "SELECT tid from " + TABLE_NAME + " where tid = ?";
-        //String args[] = new String[]{String.valueOf(tid)};
-        //Cursor result = db.rawQuery(sql, args);
-        //int count = result.getCount();
-        //result.close();
+        String sql = "SELECT id,name,cost,comment,note from " + TABLE_NAME + " where time = ?";
+        String args[] = new String[]{getDateStr(date)};
+        Cursor result = this.db.rawQuery(sql, args);
+        List<PlanData> datas = new ArrayList<>();
+        for (result.moveToFirst(); !result.isAfterLast(); result.moveToNext()) {
+            Log.d("db", getDateStr(date) + "|" + result.getString(1) + "|" + result.getFloat(2) + "|" + result.getInt(3));
+            datas.add(new PlanData(
+                    result.getInt(0),
+                    date,
+                    result.getString(1),
+                    result.getFloat(2),
+                    result.getInt(3),
+                    result.getString(4)));
+        }
+        result.close();
         this.db.close();
-        //return count != 0;
-        return null;
+        return datas;
     }
 
     public void delePlan(int id) {
         getDb();
-        String sql = "DELETE FROM " + TABLE_NAME;
-        this.db.execSQL(sql);
+        String sql = "DELETE FROM " + TABLE_NAME + " where id = ?";
+        Object args[] = new Object[]{id};
+        this.db.execSQL(sql, args);
         this.db.close();
     }
 

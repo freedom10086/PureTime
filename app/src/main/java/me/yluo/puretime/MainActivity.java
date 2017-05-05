@@ -14,7 +14,10 @@ import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import me.yluo.puretime.database.MyDB;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener
@@ -45,16 +48,11 @@ public class MainActivity extends AppCompatActivity
         navigationView.getHeaderView(0)
                 .findViewById(R.id.nav_img).setOnClickListener(this);
 
-        for (int i = 0; i < 10; i++) {
-            planDatas.add(new PlanData());
-        }
 
         adapter = new PlanListAdapter(this, planDatas);
         planList.setAdapter(adapter);
+        refreshData();
 
-        dateView.setVisibility(View.GONE);
-        planList.setVisibility(View.GONE);
-        holderView.setVisibility(View.VISIBLE);
         halfImag.setVisibility(View.INVISIBLE);
     }
 
@@ -96,8 +94,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_exit:
                 // TODO: 2017/5/4
-                CommentDialog.newInstance(null)
-                        .show(getFragmentManager(), "comment");
+
                 break;
         }
 
@@ -124,8 +121,26 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public void OnAddFriendOkClick(String mes, String uid) {
 
+    @Override
+    public void onAddActivity(PlanData planData) {
+        MyDB db = new MyDB(this);
+        db.insertPlan(planData);
+        refreshData();
+    }
+
+    private void refreshData() {
+        MyDB db = new MyDB(this);
+        planDatas = db.getPlans(new Date());
+        if (planDatas.size() == 0) {
+            planList.setVisibility(View.GONE);
+            dateView.setVisibility(View.GONE);
+            holderView.setVisibility(View.VISIBLE);
+        } else {
+            planList.setVisibility(View.VISIBLE);
+            dateView.setVisibility(View.VISIBLE);
+            holderView.setVisibility(View.GONE);
+        }
+        adapter.setPlanDatas(planDatas);
     }
 }

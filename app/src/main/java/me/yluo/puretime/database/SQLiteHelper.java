@@ -18,14 +18,15 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE " + MyDB.TABLE_NAME + "("
-                + "id int primary key AUTO_INCREMENT,"
-                + "cateId int NOT NULL,"
-                + "name VARCHAR(15) NOT NULL,"
-                + "time int NOT NULL,"
-                + "note VARCHAR(50),"
+                + "id INTEGER PRIMARY KEY autoincrement,"
+                + "time date NOT NULL," //日期
+                + "name varchar(15) NOT NULL,"//事情
+                + "cost real NOT NULL,"//花费时间
+                + "comment int,"//打分
+                + "note VARCHAR(50)"//备注
                 + ")";
         db.execSQL(sql);
-        Log.e("DATABASE", "TABLE_READ_HISTORY数据表创建成功");
+        Log.e("DATABASE", "数据表创建成功");
     }
 
 

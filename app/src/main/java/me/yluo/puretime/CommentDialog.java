@@ -31,17 +31,25 @@ import java.util.List;
  * 评分dialog
  */
 public class CommentDialog extends DialogFragment {
-    private AddActivityListener l;
+    private OnStarResultListener l;
+    private int currentStar = 0;
+    private int currentId;
 
-    public static CommentDialog newInstance(AddActivityListener l) {
+    public static CommentDialog newInstance(int id, int value, OnStarResultListener l) {
         CommentDialog frag = new CommentDialog();
         frag.setListner(l);
+        frag.setCurrentId(id);
+        frag.currentStar = value;
         return frag;
     }
 
 
-    private void setListner(AddActivityListener listener) {
+    private void setListner(OnStarResultListener listener) {
         this.l = listener;
+    }
+
+    public void setCurrentId(int currentId) {
+        this.currentId = currentId;
     }
 
     @Override
@@ -54,18 +62,24 @@ public class CommentDialog extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.view_comment, null);
-        view.findViewById(R.id.btn_close).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
         final TextView t = (TextView) view.findViewById(R.id.label);
+        t.setText(currentStar + " 分");
         CommentView c = (CommentView) view.findViewById(R.id.comment_view);
+        c.setLevel(currentStar);
         c.setListener(new CommentView.OnValueChangeListener() {
             @Override
             public void onValueChange(int level) {
                 t.setText(level + " 分");
+                currentStar = level;
+            }
+        });
+
+        view.findViewById(R.id.btn_done).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (l != null)
+                    l.result(currentId, currentStar);
+                dismiss();
             }
         });
 
@@ -74,19 +88,7 @@ public class CommentDialog extends DialogFragment {
     }
 
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        try {
-            l = (AddActivityListener) context;
-        } catch (ClassCastException e) {
-            //throw new ClassCastException(context.toString()
-            //       + " must implement NoticeDialogListener");
-        }
-    }
-
-
-    public interface AddActivityListener {
-        void OnAddFriendOkClick(String mes, String uid);
+    public interface OnStarResultListener {
+        void result(int id, int value);
     }
 }
